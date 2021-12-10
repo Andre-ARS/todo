@@ -9,3 +9,5 @@ function addOn() {
    list.appendChild(listItem);
    input.value = ''
 }
+
+button.addEventListener('click', addOn)

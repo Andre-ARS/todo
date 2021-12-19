@@ -35,3 +35,10 @@ function completTask(event) {
 
 document.getElementById("lista-tarefas").addEventListener('dblclick', completTask);
 
+function eraser() {
+   if (tasks.length > 0) {
+      document.getElementById("lista-tarefas").innerHTML = ''
+   }
+}
+
+document.getElementById('apaga-tudo').addEventListener('click', eraser)

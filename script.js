@@ -17,11 +17,20 @@ button.addEventListener('click', addOn)
 
 
 function paintTask(event) {
-   for (let index = 0; index < tasks.length; index += 1) {
-      document.querySelectorAll('#lista-tarefas li')[index].className = 'tasks';
-   } 
-
-   event.target.className = 'selected tasks'
+  for (let i = 0; i < tasks.length; i += 1) {
+      document.getElementsByClassName('tasks')[i].style.backgroundColor = 'white'
+  }
+  event.target.style.backgroundColor = 'rgb(128, 128, 128)'
 }
 
 document.getElementById("lista-tarefas").addEventListener('click', paintTask);
+
+function completTask(event) {
+   if (event.target.className === 'tasks') {
+      event.target.className = 'completed tasks'
+   } else {
+      event.target.className = 'tasks'
+   }
+}
+
+document.getElementById("lista-tarefas").addEventListener('dblclick', completTask);

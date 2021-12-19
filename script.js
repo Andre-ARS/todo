@@ -34,3 +34,4 @@ function completTask(event) {
 }
 
 document.getElementById("lista-tarefas").addEventListener('dblclick', completTask);
+

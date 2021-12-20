@@ -4,6 +4,7 @@ let input = document.getElementById("texto-tarefa")
 let tasks = document.getElementsByClassName('tasks')
 
 
+// Requisito 5
 function addOn() {
    let listItem = document.createElement('li');
 
@@ -16,6 +17,7 @@ function addOn() {
 button.addEventListener('click', addOn)
 
 
+// Requisito 7
 function paintTask(event) {
   for (let i = 0; i < tasks.length; i += 1) {
       document.getElementsByClassName('tasks')[i].style.backgroundColor = 'white'
@@ -25,6 +27,8 @@ function paintTask(event) {
 
 document.getElementById("lista-tarefas").addEventListener('click', paintTask);
 
+
+// Requisito 9
 function completTask(event) {
    if (event.target.className === 'tasks') {
       event.target.className = 'completed tasks'
@@ -35,6 +39,8 @@ function completTask(event) {
 
 document.getElementById("lista-tarefas").addEventListener('dblclick', completTask);
 
+
+// Requisito 10
 function eraser() {
    if (tasks.length > 0) {
       document.getElementById("lista-tarefas").innerHTML = ''
@@ -43,6 +49,9 @@ function eraser() {
 
 document.getElementById('apaga-tudo').addEventListener('click', eraser)
 
+
+
+// Requisito 11
 function eraseCompleted() {
    for (let i = 0; i < tasks.length; i += 1) {
       if (document.getElementById('lista-tarefas').children[i].className === 'completed tasks') {
@@ -52,3 +61,21 @@ function eraseCompleted() {
 }
 
 document.getElementById('remover-finalizados').addEventListener('click', eraseCompleted)
+
+
+
+// Requisito 12 - Bônus
+function saver() {
+   let saveList = document.getElementById('lista-tarefas').innerHTML;
+   let stringfyed = JSON.stringify(saveList)
+
+   localStorage.setItem('saveList', stringfyed)
+}
+            
+            
+document.getElementById('salvar-tarefas').addEventListener('click', saver)
+
+window.onload = function() {
+   document.getElementById('lista-tarefas').innerHTML = JSON.parse(localStorage.saveList)
+}
+

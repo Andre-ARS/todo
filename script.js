@@ -20,9 +20,9 @@ button.addEventListener('click', addOn)
 // Requisito 7
 function paintTask(event) {
   for (let i = 0; i < tasks.length; i += 1) {
-      document.getElementsByClassName('tasks')[i].style.backgroundColor = 'white'
+      document.getElementsByClassName('tasks')[i].classList.remove('selected')
   }
-  event.target.style.backgroundColor = 'rgb(128, 128, 128)'
+  event.target.classList.add('selected')
 }
 
 document.getElementById("lista-tarefas").addEventListener('click', paintTask);
@@ -30,10 +30,10 @@ document.getElementById("lista-tarefas").addEventListener('click', paintTask);
 
 // Requisito 9
 function completTask(event) {
-   if (event.target.className === 'tasks') {
-      event.target.className = 'completed tasks'
+   if (event.target.classList.contains('completed')) {
+      event.target.classList.remove('completed')
    } else {
-      event.target.className = 'tasks'
+      event.target.classList.add('completed')
    }
 }
 
@@ -54,8 +54,8 @@ document.getElementById('apaga-tudo').addEventListener('click', eraser)
 // Requisito 11
 function eraseCompleted() {
    for (let i = 0; i < tasks.length; i += 1) {
-      if (document.getElementById('lista-tarefas').children[i].className === 'completed tasks') {
-         document.getElementById('lista-tarefas').removeChild(list.childNodes[i])
+      if (document.getElementById('lista-tarefas').children[i].classList.contains('completed')) {
+         document.getElementById('lista-tarefas').removeChild(list.children[i])
       }
    }
 }
@@ -78,4 +78,3 @@ document.getElementById('remover-finalizados').addEventListener('click', eraseCo
 // window.onload = function() {
 //    document.getElementById('lista-tarefas').innerHTML = JSON.parse(localStorage.saveList)
 // }
-

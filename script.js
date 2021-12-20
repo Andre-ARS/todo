@@ -65,17 +65,17 @@ document.getElementById('remover-finalizados').addEventListener('click', eraseCo
 
 
 // Requisito 12 - Bônus
-function saver() {
-   let saveList = document.getElementById('lista-tarefas').innerHTML;
-   let stringfyed = JSON.stringify(saveList)
+// function saver() {
+//    let saveList = document.getElementById('lista-tarefas').innerHTML;
+//    let stringfyed = JSON.stringify(saveList)
 
-   localStorage.setItem('saveList', stringfyed)
-}
+//    localStorage.setItem('saveList', stringfyed)
+// }
             
             
-document.getElementById('salvar-tarefas').addEventListener('click', saver)
+// document.getElementById('salvar-tarefas').addEventListener('click', saver)
 
-window.onload = function() {
-   document.getElementById('lista-tarefas').innerHTML = JSON.parse(localStorage.saveList)
+// window.onload = function() {
+//    document.getElementById('lista-tarefas').innerHTML = JSON.parse(localStorage.saveList)
 }
 

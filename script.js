@@ -77,5 +77,5 @@ document.getElementById('remover-finalizados').addEventListener('click', eraseCo
 
 // window.onload = function() {
 //    document.getElementById('lista-tarefas').innerHTML = JSON.parse(localStorage.saveList)
-}
+// }
 

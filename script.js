@@ -53,7 +53,7 @@ document.getElementById('apaga-tudo').addEventListener('click', eraser);
 
 // Requisito 11
 
-// função inspirada na primeira resposta desse post no StackOverflow 
+// Requisitos 11 e 14 feitos com base na primeira resposta desse post no StackOverflow 
 // https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
 
 function eraseCompleted() {
@@ -85,3 +85,18 @@ window.onload = function() {
 
    list.innerHTML = listParse;          
 }
+
+
+
+
+
+// Requisito 14
+function eraseSelected() {
+   let selected = document.getElementsByClassName('selected');
+
+   while (selected[0]) {
+      selected[0].parentElement.removeChild(selected[0]);
+   }
+}
+
+document.getElementById('remover-selecionado').addEventListener('click', eraseSelected);

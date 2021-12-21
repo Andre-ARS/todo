@@ -52,6 +52,10 @@ document.getElementById('apaga-tudo').addEventListener('click', eraser);
 
 
 // Requisito 11
+
+// função inspirada na primeira resposta desse post no StackOverflow 
+// https://stackoverflow.com/questions/10842471/how-to-remove-all-elements-of-a-certain-class-from-the-dom
+
 function eraseCompleted() {
    let completed = document.getElementsByClassName('completed');
 
@@ -65,16 +69,16 @@ document.getElementById('remover-finalizados').addEventListener('click', eraseCo
 
 
 // Requisito 12 - Bônus
-// function saver() {
-//    let saveList = document.getElementById('lista-tarefas').innerHTML;
-//    let stringfyed = JSON.stringify(saveList)
+function saver() {
+   let saveList = document.getElementById('lista-tarefas').innerHTML;
+   let stringfyed = JSON.stringify(saveList);
 
-//    localStorage.setItem('saveList', stringfyed)
-// }
+   localStorage.setItem('saveList', stringfyed);
+}
             
             
-// document.getElementById('salvar-tarefas').addEventListener('click', saver)
+document.getElementById('salvar-tarefas').addEventListener('click', saver)
 
-// window.onload = function() {
-//    document.getElementById('lista-tarefas').innerHTML = JSON.parse(localStorage.saveList)
-// }
+window.onload = function() {
+   document.getElementById('lista-tarefas').innerHTML = JSON.parse(localStorage.saveList)
+}

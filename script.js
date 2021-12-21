@@ -1,7 +1,7 @@
-let button = document.getElementById('criar-tarefa')
-let list  = document.getElementById("lista-tarefas")
-let input = document.getElementById("texto-tarefa")
-let tasks = document.getElementsByClassName('tasks')
+let button = document.getElementById('criar-tarefa');
+let list  = document.getElementById("lista-tarefas");
+let input = document.getElementById("texto-tarefa");
+let tasks = document.getElementsByClassName('tasks');
 
 
 // Requisito 5
@@ -9,20 +9,20 @@ function addOn() {
    let listItem = document.createElement('li');
 
    listItem.innerText = input.value;
-   listItem.className = 'tasks'
+   listItem.className = 'tasks';
    list.appendChild(listItem);
-   input.value = ''
+   input.value = '';
 }
 
-button.addEventListener('click', addOn)
+button.addEventListener('click', addOn);
 
 
 // Requisito 7
 function paintTask(event) {
   for (let i = 0; i < tasks.length; i += 1) {
-      document.getElementsByClassName('tasks')[i].classList.remove('selected')
+      document.getElementsByClassName('tasks')[i].classList.remove('selected');
   }
-  event.target.classList.add('selected')
+  event.target.classList.add('selected');
 }
 
 document.getElementById("lista-tarefas").addEventListener('click', paintTask);
@@ -31,9 +31,9 @@ document.getElementById("lista-tarefas").addEventListener('click', paintTask);
 // Requisito 9
 function completTask(event) {
    if (event.target.classList.contains('completed')) {
-      event.target.classList.remove('completed')
+      event.target.classList.remove('completed');
    } else {
-      event.target.classList.add('completed')
+      event.target.classList.add('completed');
    }
 }
 
@@ -43,24 +43,24 @@ document.getElementById("lista-tarefas").addEventListener('dblclick', completTas
 // Requisito 10
 function eraser() {
    if (tasks.length > 0) {
-      document.getElementById("lista-tarefas").innerHTML = ''
+      document.getElementById("lista-tarefas").innerHTML = '';
    }
 }
 
-document.getElementById('apaga-tudo').addEventListener('click', eraser)
+document.getElementById('apaga-tudo').addEventListener('click', eraser);
 
 
 
 // Requisito 11
 function eraseCompleted() {
-   let completed = document.getElementsByClassName('completed')
-   
-   for (let i = 0; i < completed.length; i += 1) {
-      completed[i].parentElement.removeChild(completed[i]) 
+   let completed = document.getElementsByClassName('completed');
+
+   while (completed[0]) {
+      completed[0].parentElement.removeChild(completed[0]);
    }
 }
 
-document.getElementById('remover-finalizados').addEventListener('click', eraseCompleted)
+document.getElementById('remover-finalizados').addEventListener('click', eraseCompleted);
 
 
 

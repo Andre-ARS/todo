@@ -79,6 +79,6 @@ function saver() {
             
 document.getElementById('salvar-tarefas').addEventListener('click', saver)
 
-window.onload = function() {
-   document.getElementById('lista-tarefas').innerHTML = JSON.parse(localStorage.saveList)
-}
+// window.onload = function() {
+//    document.getElementById('lista-tarefas').innerHTML = JSON.parse(localStorage.saveList)
+// }

@@ -53,10 +53,10 @@ document.getElementById('apaga-tudo').addEventListener('click', eraser)
 
 // Requisito 11
 function eraseCompleted() {
-   for (let i = 0; i < tasks.length; i += 1) {
-      if (document.getElementById('lista-tarefas').children[i].classList.contains('completed')) {
-         document.getElementById('lista-tarefas').removeChild(list.children[i])
-      }
+   let completed = document.getElementsByClassName('completed')
+   
+   for (let i = 0; i < completed.length; i += 1) {
+      completed[i].parentElement.removeChild(completed[i]) 
    }
 }
 

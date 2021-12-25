@@ -2,6 +2,9 @@ let button = document.getElementById('criar-tarefa');
 let list  = document.getElementById("lista-tarefas");
 let input = document.getElementById("texto-tarefa");
 let tasks = document.getElementsByClassName('tasks');
+let selected = document.getElementsByClassName('selected');
+let moveUpButton = document.getElementById('mover-cima')
+let moveDownButton = document.getElementById("mover-baixo")
 
 
 // Requisito 5
@@ -50,7 +53,6 @@ function eraser() {
 document.getElementById('apaga-tudo').addEventListener('click', eraser);
 
 
-
 // Requisito 11
 
 // Requisitos 11 e 14 feitos com base na primeira resposta desse post no StackOverflow 
@@ -67,7 +69,6 @@ function eraseCompleted() {
 document.getElementById('remover-finalizados').addEventListener('click', eraseCompleted);
 
 
-
 // Requisito 12 - Bônus
 function saver() {
    let saveList = document.getElementById('lista-tarefas').innerHTML;
@@ -75,25 +76,62 @@ function saver() {
 
    localStorage.setItem('saveList', stringfyed);
 }
-                        
-document.getElementById('salvar-tarefas').addEventListener('click', saver);
-
 
 window.onload = function() {
    let storagedList = localStorage.getItem('saveList');
    let listParse = JSON.parse(storagedList);
-
+   
    list.innerHTML = listParse;          
 }
 
+document.getElementById('salvar-tarefas').addEventListener('click', saver);
 
 
+// Requisito 13
+// armazenar posição e conteudo HTML da tarefa selecionada 
+// armazenar posição e conteudo HTML da tarefa acima ou abaixo
 
+function positionSearcher() {
+   let currentPosition = '';
+   for (let i = 0; i < tasks.length; i += 1) {
+      if (tasks[i].classList.contains('selected')) {
+         currentPosition = i;
+         break;
+      }
+   }
+   return currentPosition;
+}
+
+function moveUp() {
+   let selectedContent = selected[0].outerHTML;
+   
+   if (positionSearcher() > 0) {
+      let olderSibling = selected[0].previousElementSibling;
+      let olderSiblingContent = olderSibling.outerHTML;
+
+      selected[0].outerHTML = olderSiblingContent;
+      olderSibling.outerHTML = selectedContent;
+   } 
+}
+
+function moveDown() {
+   let selectedContent = selected[0].outerHTML;
+   
+   if (positionSearcher() < tasks.length - 1) {
+      let newestSibling = selected[0].nextElementSibling;
+      let newestSiblingContent = newestSibling.outerHTML;
+      
+      selected[0].outerHTML = newestSiblingContent;
+      newestSibling.outerHTML = selectedContent;
+   } 
+}
+
+
+moveUpButton.addEventListener('click', moveUp)
+moveDownButton.addEventListener('click', moveDown)
 
 // Requisito 14
 function eraseSelected() {
-   let selected = document.getElementsByClassName('selected');
-
    while (selected[0]) {
       selected[0].parentElement.removeChild(selected[0]);
    }

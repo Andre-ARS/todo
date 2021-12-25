@@ -103,9 +103,9 @@ function positionSearcher() {
 }
 
 function moveUp() {
-   let selectedContent = selected[0].outerHTML;
    
-   if (positionSearcher() > 0) {
+   if (positionSearcher() > 0 && selected.length > 0) {
+      let selectedContent = selected[0].outerHTML;
       let olderSibling = selected[0].previousElementSibling;
       let olderSiblingContent = olderSibling.outerHTML;
 
@@ -115,9 +115,9 @@ function moveUp() {
 }
 
 function moveDown() {
-   let selectedContent = selected[0].outerHTML;
    
-   if (positionSearcher() < tasks.length - 1) {
+   if (positionSearcher() < tasks.length - 1 && selected.length > 0) {
+      let selectedContent = selected[0].outerHTML;   
       let newestSibling = selected[0].nextElementSibling;
       let newestSiblingContent = newestSibling.outerHTML;
       

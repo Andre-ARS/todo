@@ -11,5 +11,6 @@
 }
 
 .completed {
-    text-decoration: line-through solid black;
+    text-decoration: line-through solid rgba(0, 0, 0, 0.664);
+    color: rgba(0, 0, 0, 0.664);
 }

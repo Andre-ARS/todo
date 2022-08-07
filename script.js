@@ -47,6 +47,7 @@ document.getElementById("lista-tarefas").addEventListener('dblclick', completTas
 function eraser() {
    if (tasks.length > 0) {
       document.getElementById("lista-tarefas").innerHTML = '';
+      localStorage.clear();
    }
 }
 
